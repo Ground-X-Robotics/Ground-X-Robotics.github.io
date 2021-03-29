@@ -155,11 +155,11 @@ p{
     width:auto;
     background-color: #333333;
     text-align: center;
-    padding-top: 50px;
+    padding: 50px;
 }
 
 .updatebox{
-    width: 90%;
+    width: 85%;
     background-color: #eeeeee;
     margin: auto;
     margin-top: 25px;
