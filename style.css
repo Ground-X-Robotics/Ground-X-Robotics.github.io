@@ -216,7 +216,7 @@ a.updateboxlink:hover {
 }
 
 .bio{
-	max-width: 420px;
+	width: 300px;
     background-color: #eeeeee;
   	border-radius: 50px;
     margin: 42px;
