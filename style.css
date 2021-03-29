@@ -255,7 +255,6 @@ a.updateboxlink:hover {
 }
 
 .bio:hover {
-    transform: scale(1.1);
     border: solid 10px #33eeee;
     cursor: pointer;
 }
