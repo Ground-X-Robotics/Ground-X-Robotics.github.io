@@ -1,0 +1,64 @@
+<hmtl>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox">
+    <div class="topnav" id="navbar">
+      <a href="../">Home</a>
+      <a href="Team.html">Team</a>
+      <a href="Season.html" class="active" >Last Season</a>
+      <a href="Contact.html">Contact</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer">
+        <p class="title">Ground X</p>
+    </div>
+</div>
+
+<div class="footer">
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+</div>
+
+</body>
+</html>
