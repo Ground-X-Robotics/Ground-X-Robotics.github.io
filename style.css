@@ -155,11 +155,11 @@ p{
     width:auto;
     background-color: #333333;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
 }
 
 .updatebox{
-    width: 85%;
+    width: 80%;
     background-color: #eeeeee;
     margin: auto;
     margin-top: 25px;
@@ -273,6 +273,28 @@ a.updateboxlink:hover {
 }
 
 
+/*Below is the Season PAge*/
+
+.seasonpg{
+    width:auto;
+    background-color: #333333;
+    text-align: center;
+    padding: 40px;	
+}
+
+.seasonbox{
+    width: 80%;
+    background-color: #eeeeee;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 50px;
+    padding: 25px;	
+}
+
+.seasontext{
+	font-family: 'ubuntu' , sans-serif;	
+}
 
 .footer{
     position: relative;
