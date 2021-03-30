@@ -7,7 +7,7 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
 </script>
-
+<link rel="stylesheet" href="chud.css">
 
 <script type="text/javascript">
 
@@ -62,8 +62,7 @@ function pell_sqrt_10005(digits){
 
 const C = 640320n;
 const C3_OVER_24 = (C*C*C) / 24n;
-hexchars = 0n;
-hexdigits = 0;
+
 
 
 function  bs(a, b, level, factoring){
@@ -103,7 +102,6 @@ function  bs(a, b, level, factoring){
 				let g = gcd_euclid(Pam,Qmb);
 				Pam /= g;
 				Qmb /= g;
-				//console.log( "a=",a," b=",b," g=",g);
 			}
 		// Now combine
 		let Pab = Pam * Pmb;
@@ -116,10 +114,6 @@ function  bs(a, b, level, factoring){
 
 	  
 function pi_chudnovsky_bs(digits, factoring){
-	console.log("pi_chudnovsky_bs ",digits);
-    //    Compute int(pi * 10**digits) using Chudnovsky's series with binary splitting
-
-    // how many terms to compute
     DIGITS_PER_TERM = Math.log10( (640320**3) / (6*2*6*24) );
     N = Math.floor(digits/DIGITS_PER_TERM + 10);
     // Calclate P(0,N) and Q(0,N)
@@ -166,14 +160,7 @@ function CalculatePi(mode)
 	var text = e.options[e.selectedIndex].text;
 
 	digits = value;
-	
-	//try{
 	start = Date.now();
-	if (mode==1)
-		pi = pi_chudnovsky(digits);
-	else if (mode==2)
-		pi = pi_chudnovsky_bs(digits, false);
-	else if (mode==3)
 		pi = pi_chudnovsky_bs(digits, true);
 		
 	end = Date.now();
@@ -182,12 +169,11 @@ function CalculatePi(mode)
 	
 	s_hex = hexchars.toString(16).slice(hexdigits+1,hexdigits+11);
 	
-	pretty_pi = (end-start).toString() + "ms for "+digits+" decimal digits. " +
-		", Hex digits from postion "+ hexdigits.toString() +" are: "+ s_hex +" (for checking against <a href='https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula' target='_blank'>BBP</a>)<br>";
+	pretty_pi = (end-start).toString() + "ms for "+digits+" decimal digits. "
 	pretty_pi += "<code><pre>" + s[0]+"."+s.slice(1,100) ;
 
 	for (i=100;i<s.length; i+=100){
-		sixes = indexes(s.slice(i-2,i+102),'666');
+		sixes = indexes(s.slice(i-2,i+102));
 		if ( !sixes.length )
 			pretty_pi += "<br>"+s.slice(i,i+100);
 		else{
@@ -196,22 +182,20 @@ function CalculatePi(mode)
 				if ( sixes[k] - sixes[k-1] < 3)
 					sixes.splice(k,1);
 			
-			//console.log("sixes at positions", i, sixes);
-			//console.log( s.slice(i-2,i+102) );
 			line = "";
 			pretty_pi += "<br>" + s.slice(i, i+sixes[0] -2 );
 			for (j = 0; j < sixes.length; j++) { 
 				pos=sixes[j]; 
 						
 				if (pos<2){
-					pretty_pi += '<b><font color="red">'+ s.slice(i,i+pos+1) + "</font></b>";
+					pretty_pi += + s.slice(i,i+pos+1) + "</font></b>";
 					pretty_pi += s.slice(i+pos+1, (j<sixes.length-1) ? i+sixes[j+1]-2 : i+100);
 					}
 				else if (pos>99){
-					pretty_pi += '<b><font color="red">' + s.slice(i+pos-2,i+100)+ "</font></b>";
+					pretty_pi +=  + s.slice(i+pos-2,i+100)+ "</font></b>";
 					}
 				else {
-					pretty_pi += '<b><font color="red">' + s.slice(i+pos-2,i+pos+1) + "</font></b>";
+					pretty_pi +=  + s.slice(i+pos-2,i+pos+1) + "</font></b>";
 					pretty_pi += s.slice(i+pos+1, (j<sixes.length-1) ? i+sixes[j+1]-2 : i+100);
 					}	
 		
@@ -220,27 +204,14 @@ function CalculatePi(mode)
 	}
 	pretty_pi += "</pre></code>";	
 	document.getElementById("divPiDigits").innerHTML = pretty_pi;
-	/*
-	}
-	
-	catch(error){
-	document.getElementById("divPiDigits").innerHTML = error.message;
-	}
-	*/
  }
 
 function go(mode){
 	document.getElementById("divPiDigits").innerHTML = "Please wait, calculating &pi; to " +
 		document.getElementById("selectNumDigits").value + " decimal digits using ";
 		switch (mode){
-			case 1:
-			document.getElementById("divPiDigits").innerHTML += "Chudnovsky series";
-			break;
-			case 2:
-			document.getElementById("divPiDigits").innerHTML += "Chudnovsky with binary splitting";
-			break;
 			case 3:
-			document.getElementById("divPiDigits").innerHTML += "Chudnovsky with binary splitting and factoring";
+			document.getElementById("divPiDigits").innerHTML += "Chudnovsky ";
 			break;
 		}
 		document.getElementById("divPiDigits").innerHTML += "....";
@@ -252,19 +223,13 @@ function go(mode){
   <body>
    <h2> Calculate  &pi; using Chudnovsky algorithm and Pell equation </h2>
    <br>
-  
-
-
   $$ \frac{1}{\pi } = \frac{1}{426880\sqrt{10005}} \sum_{k=0}^{\infty}\frac{(-1)^k(6k)!(13591409 + 545140134k)}{(3k)!(k!)^3 640320^{3k} )} $$
-
-
 <p>
 <table  border="0" cellspacing="2" cellpadding="2">
 <tbody>
 
 <tr>
-<td valign="bottom">Decimal digits:
-</td>
+<td valign="bottom">Decimal Digits:</td>
 
 <td valign="bottom"; width=120;><center>Chudnovsky <br>Binary Splitting <br>with factoring<br>
 and Pell</center>
@@ -273,7 +238,7 @@ and Pell</center>
 
 <tr>
 <td valign="top">
-<select id="selectNumDigits" style="background-color:#d9ffb3; font-weight:bold;>
+<select id="selectNumDigits">
     <option value="50" selected>50</option>
     <option value="100">100</option>
     <option value="1000">1000</option>
@@ -284,24 +249,14 @@ and Pell</center>
     <option value="100000">100000</option>
     <option value="200000">200000 (chrome or edge)</option>
     <option value="500000">500000 (chrome or edge)</option>
-    <option value="100000000">100000000 (chrome or edge)</option>
+    <option value="10000000">10000000 (chrome or edge)</option>
 </select>
 </td>
 
-
 <td valign="top"><center>
-<input type="button" value="Start" onclick="go(3)" 
- style="background-color:#ff4d4d; border-color:black; font-family:'Palatino Linotype','Serif'; border-radius: 10px;
- font-size:16px; font-weight:bold;"; /></center>
-</td>
-</tr>
-</tbody>
-</table>
+<input type="button" value="Start" onclick="go(3)"/></center>
 
- <div id="divPiDigits" style="background-color:#ffffbf;"></div>
-</p>
-
-
-
+ <div id="divPiDigits"></div>
+ 
 </body>
 </html>
