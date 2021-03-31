@@ -18,7 +18,7 @@ body{
 
 h1{
     font-family: 'ubuntu', sans-serif;
-    font-size: 6vw;
+    font-size: 4vw;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -69,6 +69,6 @@ h1{
     margin: 10px;
     padding: 10px;
     font-family: 'ubuntu' , sans-serif;
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     word-wrap: break-word;
 }
