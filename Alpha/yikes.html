@@ -177,43 +177,11 @@ function CalculatePi(mode)
 	end = Date.now();
 
 	s = pi.toString().slice(0,digits);
-	
-	s_hex = hexchars.toString(16).slice(hexdigits+1,hexdigits+11);
-	
+
 	pretty_pi = (end-start).toString() + "ms for "+digits+" decimal digits. (Rounded to the nearest even number) " + "<br> <br>";
 	pretty_pi += "<code><pre>" + s[0]+"."+s.slice(1,100) ;
 
-	for (i=100;i<s.length; i+=100){
-		sixes = indexes(s.slice(i-2,i+102));
-		if ( !sixes.length )
-			pretty_pi += "<br>"+s.slice(i,i+100);
-		else{
-			// remove overlapping sixes
-			for (k=sixes.length-1; k>0; k--)
-				if ( sixes[k] - sixes[k-1] < 3)
-					sixes.splice(k,1);
-			
-			line = "";
-			pretty_pi += "<br>" + s.slice(i, i+sixes[0] -2 );
-			for (j = 0; j < sixes.length; j++) { 
-				pos=sixes[j]; 
-						
-				if (pos<2){
-					pretty_pi += + s.slice(i,i+pos+1) + "</font></b>";
-					pretty_pi += s.slice(i+pos+1, (j<sixes.length-1) ? i+sixes[j+1]-2 : i+100);
-					}
-				else if (pos>99){
-					pretty_pi +=  + s.slice(i+pos-2,i+100)+ "</font></b>";
-					}
-				else {
-					pretty_pi +=  + s.slice(i+pos-2,i+pos+1) + "</font></b>";
-					pretty_pi += s.slice(i+pos+1, (j<sixes.length-1) ? i+sixes[j+1]-2 : i+100);
-					}	
-		
-			}
-		}
-	}
-	pretty_pi += "</pre></code>";	
+	pretty_pi += s;	
 	document.getElementById("divPiDigits").innerHTML = pretty_pi;
  }
 
