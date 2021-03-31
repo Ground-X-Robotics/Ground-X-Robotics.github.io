@@ -183,7 +183,8 @@ function CalculatePi(mode)
 
         piout = pretty_pi.toString()
 
-	document.getElementById("divPiDigits").innerHTML = piout;
+	document.getElementById("divPiDigits").innerHTML = piout; 
+        document.getElementById("divPiDigits").style.wordBreak = "break-all";
  }
 
 function go(mode){
