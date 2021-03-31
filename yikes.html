@@ -129,41 +129,10 @@ function pi_chudnovsky_bs(digits, factoring){
     // Calclate P(0,N) and Q(0,N)
     [P, Q, T] = bs(0n, BigInt(N), 1, factoring);
     [x,y] = pell_sqrt_10005( digits )
-	hexdigits = Math.floor(digits/1.20411998266)
-	hexchars = (Q * 426880n * x * (16n**(BigInt(hexdigits)+20n)) ) / (T*y);
 	return (Q * 426880n * x * 10n**BigInt(digits)) / (T*y);
 }
 
-function pi_chudnovsky(digits){
-  //Calculate pi using Chudnovsky's series
-  //This calculates it in fixed point
- one = 0n;
- one = 10n**(BigInt(digits)+20n);
-  k = 1n;
-  a_k = one;
-  a_sum = one;
-  b_sum = 0n;
-  //C = 640320n;
-  //C3_OVER_24 = (C*C*C) / 24n; 
-  while (1){
-    a_k *= -(6n*k-5n)*(2n*k-1n)*(6n*k-1n);
-    a_k /= k*k*k*C3_OVER_24;
-    a_sum += a_k;
-    b_sum += k * a_k;
-    k += 1n;
-    if (a_k == 0n)
-        break;
-	}
-	total = 13591409n*a_sum + 545140134n*b_sum;
-
-	[x,y] = pell_sqrt_10005( digits );
-	hexdigits = Math.floor(digits/1.20411998266)
-	hexchars = (426880n*x*one*(16n**(BigInt(hexdigits)+20n))) / (total*y);
-	pi = (426880n*x*one*one) / (total*y);
-	return pi;
-}
-
-function CalculatePi(mode)
+function CalculatePi()
 {
 	var e = document.getElementById("NumDigits");
 	var value = e.value;
@@ -181,21 +150,16 @@ function CalculatePi(mode)
 	pretty_pi = (end-start).toString() + "ms for "+digits+" digits. (Rounded to the nearest even number) " + "<br> <br>";
 	pretty_pi += "" + s[0]+"."+ s.slice(1,(s.length + 1));
 
-    piout = pretty_pi.toString()
+        piout = pretty_pi.toString()
 
-	document.getElementById("divPiDigits").innerHTML = piout ; 
+	document.getElementById("divPiDigits").innerHTML = piout; 
  }
 
-function go(mode){
+function go(){
 	document.getElementById("divPiDigits").innerHTML = "Please wait, calculating pi to " +
-		document.getElementById("divPiDigits").value + " decimal digits using ";
-		switch (mode){
-			case 3:
-			document.getElementById("divPiDigits").innerHTML += "Chudnovsky ";
-			break;
-		}
+		document.getElementById("NumDigits").value + " decimal digits using Chudnovsky";
 		document.getElementById("divPiDigits").innerHTML += "....";
-	timerid = setTimeout(CalculatePi,30,mode);
+	timerid = setTimeout(CalculatePi,0);
 	}
 </script>
 
@@ -222,7 +186,7 @@ function go(mode){
 
 <!--Button to start-->
 
-<input id="Startbtn" type="button" value="Start" onclick="go(3)"/>
+<input id="Startbtn" type="button" value="Start" onclick="go()"/>
 
 
 </div>
@@ -231,8 +195,7 @@ function go(mode){
 
  <!--Output Area-->
 
-<div id="divPiDigits">
-</div>
+<div id="divPiDigits"></div>
  
 
 </div>
