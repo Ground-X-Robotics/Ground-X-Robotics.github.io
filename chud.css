@@ -21,6 +21,7 @@ h1{
     font-size: 6vw;
     margin-bottom: 20px;
     text-align: center;
+    color: red;
 }
 
 .mainbox{
@@ -70,4 +71,5 @@ h1{
     padding: 10px;
     font-family: 'ubuntu' , sans-serif;
     font-size: 1.3vw;
+	word-wrap: break-word;
 }
