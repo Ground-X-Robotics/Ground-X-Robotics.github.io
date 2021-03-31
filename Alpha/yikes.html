@@ -178,7 +178,7 @@ function CalculatePi(mode)
 
 	s = pi.toString().slice(0,digits);
 
-	pretty_pi = (end-start).toString() + "ms for "+digits+" decimal digits. (Rounded to the nearest even number) " + "<br> <br>";
+	pretty_pi = (end-start).toString() + "ms for "+digits+" digits. (Rounded to the nearest even number) " + "<br> <br>";
 	pretty_pi += "<code><pre>" + s[0]+"."+ s.slice(1,s.length);
 
         piout = pretty_pi.toString()
