@@ -18,9 +18,10 @@ body{
 
 h1{
     font-family: 'ubuntu', sans-serif;
-    font-size: 4vw;
+    font-size: 6vw;
     margin-bottom: 20px;
     text-align: center;
+    color: red;
 }
 
 .mainbox{
