@@ -179,7 +179,7 @@ function CalculatePi(mode)
 	s = pi.toString().slice(0,digits);
 
 	pretty_pi = (end-start).toString() + "ms for "+digits+" decimal digits. (Rounded to the nearest even number) " + "<br> <br>";
-	pretty_pi += "<code><pre>" + s[0]+"."+s;
+	pretty_pi += "<code><pre>" + s[0]+"."+ s.shift();
 
 	document.getElementById("divPiDigits").innerHTML = pretty_pi;
  }
