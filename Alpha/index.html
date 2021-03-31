@@ -1,0 +1,94 @@
+<hmtl>
+<head>
+
+<link rel="shortcut icon" href="logo.png">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+<link rel="stylesheet" href="Styles/main.css">
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox">
+    <div class="topnav" id="navbar">
+      <a href="../" class="active">Home</a>
+      <a href="Team">Team</a>
+      <a href="Season">Last Season</a>
+      <a href="Contact">Contact</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer">
+        <p class="title">Ground X</p>
+    </div>
+</div>
+
+
+
+<div class="updatefeed">
+
+<p id="Updatetitle">Updates Feed</p>
+
+<div class="updatebox">
+
+<p class="updateboxtitle">We're Holding a fundraiser</p>
+
+<p>
+As a robotics team, we are constantly in need of parts to fix or upgrade our robot, Simple Reality. By donating to us, you are helping us, by allowing us to buy any parts we need. This will ensure that we can further develop our STEM skills, and gives us a better chance to win the FIRST Tech Challenge. Help us keep our award winning robot, Simple Reality, in shape. Funding us will allow us to buy new and crucial parts to keep him running at his best, and upgrade him into more superior forms! With YOUR help, you can ensure that a small team of aspiring engineers, physicists and programmers can continue to learn and discover the world of robotics. <br> <br>
+We are one of the winners of the FIRST Tech Challenge's Inspire Award, and were ready to head to London, to smash the competition. Unfortunately, COVID-19, and the subsequent lockdown, prevented us from following our robotics career. We are determined to get back on our feet, however, and we need your support to help us.<br><br>
+In order to continue our experience with FIRST as much as possible, we have entered into this year's virtual competitions. Whilst we aren't going to be attending any in-person events, we will still need to maintain and improve Simple Reality, and every donation will really help.<br><br>
+We hope that you donate, no matter how much you give, it will still help us to reach our goal.<br><br>
+</p>
+
+<a id = "Fundraiserlink" href="https://www.justgiving.com/crowdfunding/groundx" class="updateboxlink">Support us Here</a>
+</div>
+
+</div>
+
+<div class="footer">
+
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+
+</div>
+
+
+</body>
+</html>
