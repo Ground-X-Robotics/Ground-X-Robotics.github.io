@@ -1,0 +1,156 @@
+<hmtl>
+<head>
+
+<link rel="icon" href="../logo.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+<link rel="stylesheet" href="Styles/main.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+
+function togglebio(y) {
+  y.classList.toggle("biotoggle");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox" id="bannerteam">
+    <div class="topnav" id="navbar">
+      <a href="../">Home</a>
+      <a href="team" class="active">Team</a>
+      <a href="lastseason">Last Season</a>
+      <a href="thisseason">This Season</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer">
+        <p class="title">Ground X</p>
+    </div>
+</div>
+
+
+<p id="Teamtitle">Meet the team</p>
+
+<div class="Team">
+
+	<div class="Bio" id="Bio1" onclick="togglebio(this)">
+	<p class = "Bioname">Olivia S</p>
+	<p class = "Biorole">Project Manager</p>
+    <p class = "Biotext">I'm Olivia! I'm the current Project Manager and Social Media Manager. I try help out where ever I can!</p>
+</div>
+	
+	
+<div class="Bio" id="Bio2" onclick="togglebio(this)">
+	<p class = "Bioname">Sam R</p>
+	<p class = "Biorole">Engineer</p>
+    <p class = "Biotext">Hey, I'm Sam. I primarily do work on the robot including designing, building and testing it. I'm also the person who made this website :)</p>
+</div>
+
+
+<div class="Bio" id="Bio3" onclick="togglebio(this)">
+	<p class = "Bioname">Izack P</p>
+	<p class = "Biorole">Engineer</p>
+    <p class = "Biotext">Hej, I'm Izack. I do work on the robot and was one of the main engineers last season. I also help with general work and even helped set up this site :)</p>
+</div>
+
+
+<div class="Bio" id="Bio4" onclick="togglebio(this)">
+	<p class = "Bioname">Jacob W</p>
+	<p class = "Biorole">Head of PR</p>
+    <p class = "Biotext">Hey, I'm Jacob and I'm in charge of all things finance, and a bunch of PR too. If you're talking to Ground X, you're probably talking to me.</p>
+</div>
+
+
+<div class="Bio" id="Bio5" onclick="togglebio(this)">
+	<p class = "Bioname">Lara C</p>
+	<p class = "Biorole">Programmer</p>
+    <p class = "Biotext">Proud to be the Ground-X programmer! I like drawing, programming, tearing apart technology, and putting it back together :) Trans rights</p>
+</div>
+
+<div class="Bio" id="Bio6" onclick="togglebio(this)">
+	<p class = "Bioname">Mia P</p>
+	<p class = "Biorole">CAD</p>
+    <p class = "Biotext">Hello, I'm Mia. I'm in-charge of all things CAD. Last season I was one of the Engineers, CAD designer, nationals driver and paperwork.</p>
+</div>
+
+
+<div class="Bio" id="Bio7" onclick="togglebio(this)">
+	<p class = "Bioname">Sam B</p>
+	<p class = "Biorole">CAD</p>
+    <p class = "Biotext">Hi I'm Sam I work on CAD and help with the designs and decals of the robot. Last season I helped with paperwork, but also helped where needed!</p>
+</div>
+
+<div class="Bio" id="Bio8" onclick="togglebio(this)">
+	<p class = "Bioname">Sarah S</p>
+	<p class = "Biorole">CAD</p>
+    <p class = "Biotext">To ADD!</p>
+</div>
+
+<div class="Bio" id="Bio9" onclick="togglebio(this)">
+	<p class = "Bioname">Logan T</p>
+	<p class = "Biorole">Artist</p>
+    <p class = "Biotext">To ADD!</p>
+</div>
+
+<div class="Bio" id="Bio10" onclick="togglebio(this)">
+	<p class = "Bioname">Louis K</p>
+	<p class = "Biorole">Artist</p>
+    <p class = "Biotext">Art and Photography / Editing </p>
+</div>
+
+<div class="Bio" id="Bio11" onclick="togglebio(this)">
+	<p class = "Bioname">Lewis W</p>
+	<p class = "Biorole">Rule team</p>
+    <p class = "Biotext">To ADD!</p>
+</div>
+
+<div class="Bio" id="Bio12" onclick="togglebio(this)">
+	<p class = "Bioname">Caelum F</p>
+	<p class = "Biorole">Rule Team</p>
+    <p class = "Biotext">To ADD!</p>
+</div>
+
+
+</div>
+
+<div class="footer">
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+</div>
+
+
+</body>
+</html>

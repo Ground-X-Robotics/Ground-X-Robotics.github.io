@@ -1,0 +1,121 @@
+<hmtl>
+<head>
+
+
+<link rel="icon" href="logo.png">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+<link rel="stylesheet" href="Styles/main.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox"  id="bannerls">
+    <div class="topnav" id="navbar">
+      <a href="../">Home</a>
+      <a href="team">Team</a>
+      <a href="lastseason" class="active">Last Season</a>
+      <a href="thisseason">This Season</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer">
+        <p class="title">Ground X</p>
+    </div>
+</div>
+ 
+  
+   <!--Main Page Below-->
+
+ <div class="seasonpg">
+
+  <div class="seasonbox">
+
+  <p id="Seasontitle">The 2019-2020 Season</p>
+
+    <p class="seasontext">
+      We started the season in september 2019. It took a while to get the team going as we had to learn from scratch. 
+      By November however we had a chasis which was built but wasn't moving
+      In december however we had our first success with getting the robot moving and we went on a trip around our school.   
+    </p> 
+    <p class="seasontext">
+      Next up we wanted to get the claw working. This was very tricky and we went through multiple different design iterations before settling on a final one.
+      We managed to get this working well by mid january and it was looking good :)
+    </p> 
+
+    <img class="seasonimg" src="Media/Season1.jpg" alt="Picture of Robot" width="90%" height="auto">
+
+    <p class="seasontext">
+    We also had to get automation to work. 
+    This was one of the most challenging but also most rewarding part of the robot as it is something we had never done before but it was amazing to see it working.
+    Automation wasn't all of it though.
+    We also had to actually drive the thing!
+    Here you can see one of first attempts at maneuvering to pick up one of the blocks:
+    </p> 
+
+    <video controls class="seasonimg" width="90%" height="auto">
+        <source src="Media/Season2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <p class="seasontext">
+    Next up was the competition!!!!<br>
+    It was a great day which we all enjoyed especially as it was the first proper testing of the robot with a full arena! <br>
+    In the end we one the Inspire award which was amazing given that we had no idea what how our robot would compare to everyone else's <br>
+    That meant we got through to the next round which would take place in London!
+    <br>
+    Unfortunately that was as far as our 2019-2020 season went as the season was cut short by Covid-19.
+    However we're now back up and running in the 2020-2021 Season!
+    <a class="SeasonLink " href="thiseason">Learn more  about the 2020-2021 season here!</a>
+    </p> 
+
+  </div>
+
+
+
+
+  
+ </div>
+   
+<div class="footer">
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+</div>
+
+</body>
+</html>
