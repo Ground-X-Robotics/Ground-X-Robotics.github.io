@@ -68,7 +68,7 @@ function calcpi (){
 	total ++;
 	
 	pi = 4n * (BigInt(inside)*(10n**20n))/(BigInt(total));
-	piout = pi.toString.slice(0,1) + "." + pi.toString.slice(1,15);
+	piout = pi.toString().slice(0,1) + "." + pi.toString().slice(1,15);
 	
 	document.getElementById("Montepi").innerHTML = piout;
 	
