@@ -72,3 +72,36 @@ h1{
     font-size: 1.3vw;
     word-wrap: break-word;
 }
+
+
+#MonteCanvas{
+	position: absolute;
+	height: 42vw;
+	width: 42vw;
+   	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%); 
+}
+
+#MonteDiv{
+	position: absolute;
+   	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%); 
+	background-color: #eeeeee;
+	border-radius: 25px;
+	display: block;
+	height: 45vw;
+	width: 45vw;
+}
+
+#Montepi{
+	position: absolute;
+	top: 95%;
+	left: 50%;
+    	transform: translate(-50%, -50%); 
+	font-family: 'ubuntu' , sans-serif;
+	font-color: #333333;
+	font-size: 2vw;
+	
+}

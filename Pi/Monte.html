@@ -1,0 +1,80 @@
+<html>
+
+<head>
+
+<link rel="icon" href="logo.png">
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<link rel="stylesheet" href="../Styles/chud.css">
+
+<!--Font Import below-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+
+<!--Main Algorithm in script below-->
+
+<body>
+
+<div id="MonteDiv">
+<canvas id="MonteCanvas" width="500" height="500"></canvas>
+
+<p id="Montepi">Testing</p>
+
+<script>
+
+var c = document.getElementById("MonteCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(250, 250, 200, 0, 2 * Math.PI);
+ctx.stroke();
+</script>
+
+<script>
+
+function getRndInt(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+total = 0;
+inside = 0;
+
+setInterval(calcpi, 0);
+
+function calcpi (){
+
+	var x=getRndInt(-200,200);
+	var y=getRndInt(-200,200);
+	
+	var c = document.getElementById("MonteCanvas");
+	var ctx = c.getContext("2d");
+	
+	
+	if( (x**2 + y**2) < 40000)
+	{
+		inside ++;
+		ctx.fillStyle = "#119911";
+		ctx.fillRect(x+250,y+250,1,1);
+	}
+	else
+	{
+		ctx.fillStyle = "#FF1111";
+		ctx.fillRect(x+250,y+250,1,1);
+	}
+	total ++;
+	
+	pi = 4n * (BigInt(inside)*(10n**20n))/(BigInt(total));
+	piout = pi.toString.slice(0,1) + "." + pi.toString.slice(1,15);
+	
+	document.getElementById("Montepi").innerHTML = piout;
+	
+}
+
+</script>
+
+</body>
+</html>
