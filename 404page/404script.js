@@ -275,7 +275,7 @@ class Alien
 			
 			
 			//Drop bomb
-			if(player.x > this.sprite.x-attackRange && player.x < this.sprite.x+attackRange)
+			if(player.x > this.sprite.x-this.attackRange && player.x < this.sprite.x+this.attackRange)
 			{
 				if(new Date().getTime() - this.lastTimeBomb > this.bombDelay*1000)
 				{
