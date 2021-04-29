@@ -661,7 +661,7 @@ function changeGunTo(gunNum, playAnimation=true)
 }
 function shootGun(player)
 {
-	var newAudio = new Audio('sounds/shoot.wav');
+	var newAudio = new Audio('404page/sounds/shoot.wav');
 	newAudio.volume=0.1;
 	newAudio.play();
 	var len = bullets.length;
