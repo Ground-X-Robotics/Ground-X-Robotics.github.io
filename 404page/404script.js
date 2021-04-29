@@ -792,6 +792,7 @@ function updateGameArea()
 			if(bulletCooldown>=gun[gunType].firedelay && currentDurability>0)
 				shootGun(player);
 		}
+
 		// * REMOVE LATER
 		//*
 		//*
@@ -1116,6 +1117,15 @@ function updateGameArea()
 			}
 		}
 
+		var bombBulletCollisions = checkForCollision(bullets, alienBombs);
+		if(bombBulletCollisions)
+		{
+			for(var i=0; i<bombBulletCollisions.length; i++)
+			{
+				bombBulletCollisions[i].active=false;
+			}
+		}
+
 		updateStars();
 		updatePickups();
 		updateAliens();
@@ -1162,6 +1172,15 @@ function updateGameArea()
 			
 			score+=10000-((new Date().getTime() - startTime)/1000);
 			score=Math.round(score);
+
+			setTimeout(
+				function()
+				{
+					location.reload();
+				},
+				10*1000
+			);
+
 			//So it doesnt die more than once in a frame
 			lives-=999;
 		}
@@ -1174,7 +1193,7 @@ function updateGameArea()
 
 
 
-		//Wave checking (lol)
+		//Wave checking
 		if(waveCheck[0] && allAliensDead())
 		{
 			console.log("wave complete")
