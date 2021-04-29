@@ -1,5 +1,3 @@
-/* Game is incomplete. Literally babys first js game lol */ 
-
 function isWackyMode(){return false} 
 /*
 Set this to true for some wacky stuff!
@@ -83,7 +81,7 @@ class Alien
 		this.movementType="drift";
 		this.creationI=i;
 		this.attackRange=175;
-		this.bombDelay=15;
+		this.bombDelay=7;
 		this.lastTimeBomb=new Date().getTime();
 		
 		//Basic path, if for some reason the assignment fails, itll use this by default
@@ -802,12 +800,12 @@ function updateGameArea()
 		//*
 		//*
 		//*
-		//if(map[81]){
-		//	if(bulletCooldown>=250){
-		//		changeGunTo((gunType+1)%gun.length);
-		//		bulletCooldown=0;
-		//	}
-		//}
+		if(map[81]){
+			if(bulletCooldown>=250){
+				changeGunTo((gunType+1)%gun.length);
+				bulletCooldown=0;
+			}
+		}
 		//*
 		//*
 		//*
@@ -1219,30 +1217,30 @@ function dropBombFrom(alien)
 	var newBomb = new component(15,15,"sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
 
-	alienBombs[alienBombs.length] = newBomb;
+	//alienBombs[alienBombs.length] = newBomb;
 
-	// if (alienBombs.length==0) alienBombs[0]=newBomb;
-	// else
-	// {
-	// 	for(var i=0; i<alienBombs.length; i++)
-	// 	{
-	// 		if(!alienBombs[i].active)
-	// 		{
-	// 			alienBombs[i]=newBomb;
-	// 			return;
-	// 		}
-	// 	}
+	if (alienBombs.length==0) alienBombs[0]=newBomb;
+	else
+	{
+		for(var i=0; i<alienBombs.length; i++)
+		{
+			if(!alienBombs[i].active)
+			{
+				alienBombs[i]=newBomb;
+				return;
+			}
+		}
 
-	// 	//If it didnt find and inactive bombs, make a new one.
-	// 	alienBombs[alienBombs.length] = newBomb;
-	// }
+		//If it didnt find and inactive bombs, make a new one.
+		alienBombs[alienBombs.length] = newBomb;
+	}
 }
 
 function updateBombs()
 {
 	for(var i=0; i<alienBombs.length; i++)
 	{
-		if(alienBombs[i].y < gameArea.canvas.height)
+		if(alienBombs[i].y > gameArea.canvas.height)
 		alienBombs[i].active=false;
 
 		if(alienBombs[i].active)
