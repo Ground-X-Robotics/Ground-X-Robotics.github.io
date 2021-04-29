@@ -61,7 +61,7 @@ function startGame()
 	//*This is the image that says "Error 404 ; Page not found" (used image because of the lack of font support)
 	errortext = new component(700,200,"sprites/404.png",220,130,"image");
 	//*This is the small image of the arrow keys
-	arrowKeys = new component(32*3,21*3,"sprites/arrowKeys.png",0,gameArea.canvas.height-(21*3),"image");
+	arrowKeys = new component(72*3,21*3,"sprites/arrowKeys.png",0,gameArea.canvas.height-(21*3),"image");
 	//*This is the player on-screen both before and after starting the game. Do not remove.
 	player = new component(88,200, "sprites/spaceship.png", 80, 120, "image");
 	
@@ -82,7 +82,7 @@ class Alien
 		this.type=type;
 		this.movementType="drift";
 		this.creationI=i;
-		this.attackRange=20;
+		this.attackRange=175;
 		this.bombDelay=15;
 		this.lastTimeBomb=new Date().getTime();
 		
@@ -224,11 +224,6 @@ class Alien
 				
 				var dist = Math.sqrt((this.currentX-this.targetX)*(this.currentX-this.targetX)) + ((this.currentY-this.targetY)*(this.currentY-this.targetY))
 
-				if(this.type==2)
-				{
-					//console.log(this.targetPoint);
-					//console.log(dist);
-				}
 				//If it has met its target position (near enough met it)
 				if(dist < 10)
 				{
@@ -275,15 +270,16 @@ class Alien
 			
 			
 			//Drop bomb
-			if(player.x > this.sprite.x-this.attackRange && player.x < this.sprite.x+this.attackRange)
+			if(new Date().getTime() - this.lastTimeBomb > this.bombDelay*1000)
 			{
-				if(new Date().getTime() - this.lastTimeBomb > this.bombDelay*1000)
+				if(player.x > this.sprite.x-this.attackRange && player.x < this.sprite.x+this.attackRange)
 				{
 					if(Math.round(Math.random()*1)==0)
 					{
 						dropBombFrom(this);
 					}
 				}
+				this.lastTimeBomb= new Date().getTime();
 			}
 		}
 	}
@@ -339,9 +335,10 @@ class Pickup
 		this.type=i;
 		this.destroyed=false;
 
-		var newSprite="404page/sprites/gunSingle.png"
-		if(i==1) newSprite="404page/sprites/gunDouble.png";
-		else if(i==2) newSprite="404page/sprites/gunLaser.png";
+		var newSprite="sprites/gunSingle.png"
+		if(i==1) newSprite="sprites/gunDouble.png";
+		else if(i==2) newSprite="sprites/gunLaser.png";
+		else if(i==3) newSprite="sprites/gunWipe.png"
 
 		this.sprite=new component(33,33, newSprite, x, y, "image")
 		this.sprite.speedY=3;
@@ -386,7 +383,7 @@ function createPickup(i,x,y)
 }
 function dropPickup()
 {
-	var randomNum = Math.floor(Math.random()*2)+1; //Random number from 1 to 2 ( r(0,1) then add 1)
+	var randomNum = Math.floor(Math.random()*3)+1; //Random number from 1 to 2 ( r(0,1) then add 1)
 	createPickup(randomNum,Math.random()*gameArea.canvas.width,0);
 }
 
@@ -413,10 +410,10 @@ class Gun
 var gun=[
 	//name, firedelay, damage, speed, durability, colour, length, beam count, spread
 	new Gun("laser", 500, 1, 20, 999999999999,'#FF0000', 15, 1,1),
-	new Gun("double laser", 250, 10, 20, 100, '#00FF00', 15, 2,1),
+	new Gun("double laser", 250, 10, 20, 50, '#00FF00', 15, 2,1),
 	new Gun("ionic beam", 0, 1, 50, 80, '#FFFF00', 55, 1,1),
+	new Gun("wipe", 750, 999, 25, 6, '#FFFFFF', 10, 1, 30),
 	new Gun("old laser", 100, 10, 20, 200, '#00FF00', 15, 2,1),
-	new Gun("adjacent", 750, 999, 25, 15, '#FFFFFF', 10, 1, 50),
 	new Gun("trans beam", 0, 999, 50, 99999999999999999999999999, '#FFFFFF', 55, 5,1),
 ]
 var gunType = 0;
@@ -504,7 +501,7 @@ function checkForCollision(objectA, objectB)
 			//if(typeof objectA[a]=='undefined' || typeof objectB[b]=='undefined')
 			//	return false;
 			
-			//console.log(b);
+
 			var rect1={x: spriteA[a].x, y: spriteA[a].y, width: spriteA[a].width, height: spriteA[a].height}
 			var rect2={x: spriteB[b].x, y: spriteB[b].y, width: spriteB[b].width, height: spriteB[b].height}
 
@@ -1074,7 +1071,7 @@ function updateGameArea()
 
 		if(dropTimeout<20)
 		{
-			//console.log(dropTimeout);
+
 
 			dropPickup();
 		}
@@ -1092,16 +1089,16 @@ function updateGameArea()
 			{
 				//var bulletColl = checkForCollision(alienBulletCollisions[i], bullets);
 				//bulletColl.active=false;
-				//console.log(bulletColl);
+
 				alienBulletCollisions[i].dead=true;
 				score+=20;
-				//console.log(score);
+
 				var newAudio = new Audio('sounds/enemyHurt.wav');
 				newAudio.volume=0.25;
 				newAudio.play();
 			}
 
-		var pickupCollisions = checkForCollision(player, pickups)
+		var pickupCollisions = checkForCollision(player, pickups);
 		if(pickupCollisions)
 			for(var i=0; i<pickupCollisions.length; i++)
 			{
@@ -1109,10 +1106,21 @@ function updateGameArea()
 				pickupCollisions[i].destroyed=true;
 			}
 
+		var bombCollisions = checkForCollision(player, alienBombs);
+		if(bombCollisions)
+		{
+			for(var i=0; i<bombCollisions.length; i++)
+			{
+				hurtPlayer();
+				bombCollisions[i].active=false;
+			}
+		}
+
 		updateStars();
 		updatePickups();
 		updateAliens();
 		updateBullets();
+		updateBombs();
 	}
 
 
@@ -1147,7 +1155,7 @@ function updateGameArea()
 		if(hurtFlash.alpha>0)
 			hurtFlash.update();
 		
-		//console.log(lives);
+
 		if(lives<0 && lives>-5)
 		{	
 			player.active=false;
@@ -1207,15 +1215,46 @@ function allAliensDead()
 alienBombs=[];
 function dropBombFrom(alien)
 {
-	var newBomb = new component(10,10,"white",alien.sprite.x,alien.sprite.y)
+	console.log(alienBombs);
+	var newBomb = new component(15,15,"sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
+	newBomb.speedY = 5;
 
-	if (alienBombs.length==0) alienBombs[0]=newBomb;
-	else
+	alienBombs[alienBombs.length] = newBomb;
+
+	// if (alienBombs.length==0) alienBombs[0]=newBomb;
+	// else
+	// {
+	// 	for(var i=0; i<alienBombs.length; i++)
+	// 	{
+	// 		if(!alienBombs[i].active)
+	// 		{
+	// 			alienBombs[i]=newBomb;
+	// 			return;
+	// 		}
+	// 	}
+
+	// 	//If it didnt find and inactive bombs, make a new one.
+	// 	alienBombs[alienBombs.length] = newBomb;
+	// }
+}
+
+function updateBombs()
+{
+	for(var i=0; i<alienBombs.length; i++)
 	{
-		for(var i=0; i<alienBombs.length; i++)
-		{
+		if(alienBombs[i].y < gameArea.canvas.height)
+		alienBombs[i].active=false;
 
+		if(alienBombs[i].active)
+		{
+			alienBombs[i].update();
+			alienBombs[i].y+=alienBombs[i].speedY;
 		}
+		else
+		{
+			alienBombs[i].y= - gameArea.canvas.height;
+		}
+
 	}
 }
 
