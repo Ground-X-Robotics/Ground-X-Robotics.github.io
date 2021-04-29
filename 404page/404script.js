@@ -1,3 +1,5 @@
+/* Game is incomplete. Literally babys first js game lol */ 
+
 function isWackyMode(){return false} 
 /*
 Set this to true for some wacky stuff!
@@ -800,12 +802,12 @@ function updateGameArea()
 		//*
 		//*
 		//*
-		//if(map[81]){
-		//	if(bulletCooldown>=250){
-		//		changeGunTo((gunType+1)%gun.length);
-		//		bulletCooldown=0;
-		//	}
-		//}
+		// if(map[81]){
+		// 	if(bulletCooldown>=250){
+		// 		changeGunTo((gunType+1)%gun.length);
+		// 		bulletCooldown=0;
+		// 	}
+		// }
 		//*
 		//*
 		//*
