@@ -108,7 +108,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="404page/sprites/alien2.png";
+			sprite="sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
@@ -117,7 +117,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))]
 			];
-			sprite="404page/sprites/alien3.png";
+			sprite="sprites/alien3.png";
 		}
 		else if(type=="zigzagger"||type==3) 
 		{
@@ -131,13 +131,13 @@ class Alien
 				this.path[(i+splits+2)]=[gameArea.canvas.width/splits * i,gameArea.canvas.height*(i%2)]
 			}
 
-			sprite="404page/sprites/alien4.png";
+			sprite="sprites/alien4.png";
 		}
 		else if(type=="cosiner"||type==4) 
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="404page/sprites/alien5.png";
+			sprite="sprites/alien5.png";
 
 			this.path=[];
 			var x=0;
@@ -151,7 +151,7 @@ class Alien
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="404page/sprites/alien6.png";
+			sprite="sprites/alien6.png";
 
 			this.path=[];
 			var x=0;
@@ -165,7 +165,7 @@ class Alien
 		{
 			this.movementType="exact"
 			this.speed=3;
-			sprite="404page/sprites/alien7.png";
+			sprite="sprites/alien7.png";
 
 			this.path=[];
 			var x=0;
@@ -180,14 +180,14 @@ class Alien
 			this.movementType="homing";
 			this.speed=2;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="404page/sprites/alien8.png";
+			sprite="sprites/alien8.png";
 		}
 		else if(type=="swiper"||type==8)
 		{
 			this.movementType="swiper";
 			this.speed=7;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="404page/sprites/alien9.png";
+			sprite="sprites/alien9.png";
 
 			this.path[0][0]=0;
 			this.path[0][1]=Math.random()*gameArea.canvas.height;
