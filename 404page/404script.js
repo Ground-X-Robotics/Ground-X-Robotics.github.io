@@ -59,11 +59,11 @@ function startGame()
 	*/
 
 	//*This is the image that says "Error 404 ; Page not found" (used image because of the lack of font support)
-	errortext = new component(700,200,"sprites/404.png",220,130,"image");
+	errortext = new component(700,200,"404page/sprites/404.png",220,130,"image");
 	//*This is the small image of the arrow keys
-	arrowKeys = new component(72*3,21*3,"sprites/arrowKeys.png",0,gameArea.canvas.height-(21*3),"image");
+	arrowKeys = new component(72*3,21*3,"404page/sprites/arrowKeys.png",0,gameArea.canvas.height-(21*3),"image");
 	//*This is the player on-screen both before and after starting the game. Do not remove.
-	player = new component(88,200, "sprites/spaceship.png", 80, 120, "image");
+	player = new component(88,200, "404page/sprites/spaceship.png", 80, 120, "image");
 	
 	
 	//Death screen vvvvvvv
@@ -99,7 +99,7 @@ class Alien
 				[(gameArea.canvas.width/15) * this.creationI[0] , 0],
 				[(gameArea.canvas.width/15) * this.creationI[0], gameArea.canvas.height*0.666666]
 			];
-			sprite="sprites/alien1.png";
+			sprite="404page/sprites/alien1.png";
 		}
 		else if(type=="swinger"||type==1) 
 		{
@@ -108,7 +108,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="sprites/alien2.png";
+			sprite="404page/sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
@@ -117,7 +117,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))]
 			];
-			sprite="sprites/alien3.png";
+			sprite="404page/sprites/alien3.png";
 		}
 		else if(type=="zigzagger"||type==3) 
 		{
@@ -131,13 +131,13 @@ class Alien
 				this.path[(i+splits+2)]=[gameArea.canvas.width/splits * i,gameArea.canvas.height*(i%2)]
 			}
 
-			sprite="sprites/alien4.png";
+			sprite="404page/sprites/alien4.png";
 		}
 		else if(type=="cosiner"||type==4) 
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="sprites/alien5.png";
+			sprite="404page/sprites/alien5.png";
 
 			this.path=[];
 			var x=0;
@@ -151,7 +151,7 @@ class Alien
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="sprites/alien6.png";
+			sprite="404page/sprites/alien6.png";
 
 			this.path=[];
 			var x=0;
@@ -165,7 +165,7 @@ class Alien
 		{
 			this.movementType="exact"
 			this.speed=3;
-			sprite="sprites/alien7.png";
+			sprite="404page/sprites/alien7.png";
 
 			this.path=[];
 			var x=0;
@@ -180,14 +180,14 @@ class Alien
 			this.movementType="homing";
 			this.speed=2;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="sprites/alien8.png";
+			sprite="404page/sprites/alien8.png";
 		}
 		else if(type=="swiper"||type==8)
 		{
 			this.movementType="swiper";
 			this.speed=7;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="sprites/alien9.png";
+			sprite="404page/sprites/alien9.png";
 
 			this.path[0][0]=0;
 			this.path[0][1]=Math.random()*gameArea.canvas.height;
@@ -315,7 +315,7 @@ function hurtPlayer(amt=1)
 {
 	if(hurtCooldown>1500)
 	{
-		new Audio('sounds/hurt.wav').play();
+		new Audio('404page/sounds/hurt.wav').play();
 
 		livesDisplay.pop();
 		lives-=amt;
@@ -335,10 +335,10 @@ class Pickup
 		this.type=i;
 		this.destroyed=false;
 
-		var newSprite="sprites/gunSingle.png"
-		if(i==1) newSprite="sprites/gunDouble.png";
-		else if(i==2) newSprite="sprites/gunLaser.png";
-		else if(i==3) newSprite="sprites/gunWipe.png"
+		var newSprite="404page/sprites/gunSingle.png"
+		if(i==1) newSprite="404page/sprites/gunDouble.png";
+		else if(i==2) newSprite="404page/sprites/gunLaser.png";
+		else if(i==3) newSprite="404page/sprites/gunWipe.png"
 
 		this.sprite=new component(33,33, newSprite, x, y, "image")
 		this.sprite.speedY=3;
@@ -654,7 +654,7 @@ function changeGunTo(gunNum, playAnimation=true)
 	
 	if(playAnimation)
 	{
-		new Audio('sounds/pickup.wav').play();
+		new Audio('404page/sounds/pickup.wav').play();
 		playFlashAnimation=true;
 		animationStartTime= new Date().getTime();
 	}
@@ -1038,7 +1038,7 @@ function updateGameArea()
 		
 		for(var i=0; i<lives; i++)
 		{
-			livesDisplay[i]=new component((11*1.5),25*1.5,"sprites/spaceship.png",0+(i*11*1.5),gameArea.canvas.height-(25*1.5),"image")
+			livesDisplay[i]=new component((11*1.5),25*1.5,"404page/sprites/spaceship.png",0+(i*11*1.5),gameArea.canvas.height-(25*1.5),"image")
 		}
 
 		generateStars();
@@ -1094,7 +1094,7 @@ function updateGameArea()
 				alienBulletCollisions[i].dead=true;
 				score+=20;
 
-				var newAudio = new Audio('sounds/enemyHurt.wav');
+				var newAudio = new Audio('404page/sounds/enemyHurt.wav');
 				newAudio.volume=0.25;
 				newAudio.play();
 			}
@@ -1234,7 +1234,7 @@ function allAliensDead()
 alienBombs=[];
 function dropBombFrom(alien)
 {
-	var newBomb = new component(15,15,"sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
+	var newBomb = new component(15,15,"404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
 
 	//alienBombs[alienBombs.length] = newBomb;
