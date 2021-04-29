@@ -1234,7 +1234,6 @@ function allAliensDead()
 alienBombs=[];
 function dropBombFrom(alien)
 {
-	console.log(alienBombs);
 	var newBomb = new component(15,15,"sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
 
