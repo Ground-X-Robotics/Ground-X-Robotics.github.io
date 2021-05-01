@@ -18,6 +18,7 @@ body{
 canvas {
 	border: 1px solid #000000;
 	background-color: #000000;
-	/*width: 50%;
-    height: 50%;*/
+	margin: auto;
+	height: 50%;
+	width: 80%;
 }
