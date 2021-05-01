@@ -14,3 +14,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body{
  background: black; 
 }
+
+canvas {
+	border: 1px solid #000000;
+	background-color: #000000;
+	/*width: 50%;
+    height: 50%;*/
+}
