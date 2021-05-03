@@ -20,6 +20,7 @@ canvas {
 	border-radius: 25px;
 	background-color: #000000;
 	position: absolute;
+	padding: 20px;
 	height: 80%;
 	width: 80%;
    	top: 50%;
