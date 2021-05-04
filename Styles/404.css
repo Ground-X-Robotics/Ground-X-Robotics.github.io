@@ -21,8 +21,8 @@ canvas {
 	background-color: #000000;
 	position: absolute;
 	padding: 10px;
-	height: 32vw;
-	width: 75vw;
+	height: 40vw;
+	width: 90vw;
    	top: 50%;
     	left: 50%;
     	transform: translate(-50%, -50%); 
