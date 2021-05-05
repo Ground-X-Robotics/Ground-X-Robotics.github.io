@@ -410,7 +410,7 @@ var gun=[
 	new Gun("laser", 500, 1, 20, 999999999999,'#FF0000', 15, 1,1),
 	new Gun("double laser", 250, 10, 20, 50, '#00FF00', 15, 2,1),
 	new Gun("ionic beam", 0, 1, 50, 80, '#FFFF00', 55, 1,1),
-	new Gun("wipe", 750, 999, 25, 6, '#FFFFFF', 10, 1, 30),
+	new Gun("wipe", 750, 999, 25, 10, '#FFFFFF', 10, 1, 37),
 	new Gun("old laser", 100, 10, 20, 200, '#00FF00', 15, 2,1),
 	new Gun("trans beam", 0, 999, 50, 99999999999999999999999999, '#FFFFFF', 55, 5,1),
 ]
