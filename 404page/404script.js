@@ -1,5 +1,3 @@
-/* Game is incomplete. Literally babys first js game lol */ 
-
 function isWackyMode(){return false} 
 /*
 Set this to true for some wacky stuff!
@@ -99,7 +97,7 @@ class Alien
 				[(gameArea.canvas.width/15) * this.creationI[0] , 0],
 				[(gameArea.canvas.width/15) * this.creationI[0], gameArea.canvas.height*0.666666]
 			];
-			sprite="404page/sprites/alien1.png";
+			sprite="../404page/sprites/alien1.png";
 		}
 		else if(type=="swinger"||type==1) 
 		{
@@ -108,7 +106,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="404page/sprites/alien2.png";
+			sprite="../404page/404page/sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
@@ -117,7 +115,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))]
 			];
-			sprite="404page/sprites/alien3.png";
+			sprite="../404page/sprites/alien3.png";
 		}
 		else if(type=="zigzagger"||type==3) 
 		{
@@ -131,13 +129,13 @@ class Alien
 				this.path[(i+splits+2)]=[gameArea.canvas.width/splits * i,gameArea.canvas.height*(i%2)]
 			}
 
-			sprite="404page/sprites/alien4.png";
+			sprite="../404page/sprites/alien4.png";
 		}
 		else if(type=="cosiner"||type==4) 
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="404page/sprites/alien5.png";
+			sprite="../404page/sprites/alien5.png";
 
 			this.path=[];
 			var x=0;
@@ -151,7 +149,7 @@ class Alien
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="404page/sprites/alien6.png";
+			sprite="../404page/sprites/alien6.png";
 
 			this.path=[];
 			var x=0;
@@ -165,7 +163,7 @@ class Alien
 		{
 			this.movementType="exact"
 			this.speed=3;
-			sprite="404page/sprites/alien7.png";
+			sprite="../404page/sprites/alien7.png";
 
 			this.path=[];
 			var x=0;
@@ -180,14 +178,14 @@ class Alien
 			this.movementType="homing";
 			this.speed=2;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="404page/sprites/alien8.png";
+			sprite="../404page/sprites/alien8.png";
 		}
 		else if(type=="swiper"||type==8)
 		{
 			this.movementType="swiper";
 			this.speed=7;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="404page/sprites/alien9.png";
+			sprite="../404page/sprites/alien9.png";
 
 			this.path[0][0]=0;
 			this.path[0][1]=Math.random()*gameArea.canvas.height;
@@ -335,10 +333,10 @@ class Pickup
 		this.type=i;
 		this.destroyed=false;
 
-		var newSprite="404page/sprites/gunSingle.png"
-		if(i==1) newSprite="404page/sprites/gunDouble.png";
-		else if(i==2) newSprite="404page/sprites/gunLaser.png";
-		else if(i==3) newSprite="404page/sprites/gunWipe.png"
+		var newSprite="../404page/sprites/gunSingle.png"
+		if(i==1) newSprite="../404page/sprites/gunDouble.png";
+		else if(i==2) newSprite="../404page/sprites/gunLaser.png";
+		else if(i==3) newSprite="../404page/sprites/gunWipe.png"
 
 		this.sprite=new component(33,33, newSprite, x, y, "image")
 		this.sprite.speedY=3;
@@ -657,14 +655,14 @@ function changeGunTo(gunNum, playAnimation=true)
 	
 	if(playAnimation)
 	{
-		new Audio('404page/sounds/pickup.wav').play();
+		new Audio('../404page/sounds/pickup.wav').play();
 		playFlashAnimation=true;
 		animationStartTime= new Date().getTime();
 	}
 }
 function shootGun(player)
 {
-	var newAudio = new Audio('404page/sounds/shoot.wav');
+	var newAudio = new Audio('../404page/sounds/shoot.wav');
 	newAudio.volume=0.1;
 	newAudio.play();
 	var len = bullets.length;
@@ -1025,7 +1023,7 @@ function updateGameArea()
 		
 		for(var i=0; i<lives; i++)
 		{
-			livesDisplay[i]=new component((11*1.5),25*1.5,"404page/sprites/spaceship.png",5+(i*11*1.5),(gameArea.canvas.height-(25*1.5))-5,"image")
+			livesDisplay[i]=new component((11*1.5),25*1.5,"../404page/sprites/spaceship.png",5+(i*11*1.5),(gameArea.canvas.height-(25*1.5))-5,"image")
 		}
 
 		generateStars();
@@ -1214,7 +1212,7 @@ function updateGameArea()
 alienBombs=[];
 function dropBombFrom(alien)
 {
-	var newBomb = new component(15,15,"404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
+	var newBomb = new component(15,15,"../404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
 	
 	//alienBombs[alienBombs.length] = newBomb;
