@@ -176,7 +176,7 @@ class Alien
 		else if(type=="homer"||type==7)
 		{
 			this.movementType="homing";
-			this.speed=4;
+			this.speed=3.3;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
 			sprite="/404page/sprites/alien8.png";
 		}
@@ -1035,6 +1035,8 @@ function updateGameArea()
 
 		ammo = new text(currentDurability, gameArea.canvas.width-5,35,"30px Courier", "red", "right");
 
+		scoreText = new text(getScore(), 5,35,"30px Courier", "red", "left");
+
 		gameStarted=true;
 	}
 
@@ -1057,8 +1059,6 @@ function updateGameArea()
 
 		if(dropTimeout<20)
 		{
-
-
 			dropPickup();
 		}
 
@@ -1067,7 +1067,11 @@ function updateGameArea()
 		
 		var collision = checkForCollision(player, aliens);
 		if(collision && player.active)
+		{
 			hurtPlayer();
+			collision[0].dead=true;
+			collision[0].sprite.active=false;
+		}
 
 		var alienBulletCollisions = checkForCollision(bullets, aliens);
 		if(alienBulletCollisions)
@@ -1144,6 +1148,8 @@ function updateGameArea()
 			ammoText=currentDurability;
 		ammo.text=ammoText;
 		ammo.update();
+		scoreText.text=getScore();
+		scoreText.update();
 
 		if(flash.alpha>0)
 			flash.update();
@@ -1156,8 +1162,7 @@ function updateGameArea()
 		{	
 			player.active=false;
 			
-			score+=10000-((new Date().getTime() - startTime)/1000);
-			score=Math.round(score);
+			score+=Math.round(new Date().getTime() - startTime*1000);
 
 			setTimeout(
 				function()
@@ -1290,3 +1295,5 @@ function startWave(waveNum)
 		);
 	}
 }
+
+function getScore() { return score+Math.round(new Date().getTime() - startTime*1000); }
