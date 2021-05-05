@@ -81,7 +81,7 @@ class Alien
 		this.movementType="drift";
 		this.creationI=i;
 		this.attackRange=175;
-		this.bombDelay=7;
+		this.bombDelay=5;
 		this.lastTimeBomb=new Date().getTime();
 		
 		//Basic path, if for some reason the assignment fails, itll use this by default
@@ -176,7 +176,7 @@ class Alien
 		else if(type=="homer"||type==7)
 		{
 			this.movementType="homing";
-			this.speed=2;
+			this.speed=4;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
 			sprite="/404page/sprites/alien8.png";
 		}
