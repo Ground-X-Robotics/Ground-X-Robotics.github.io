@@ -771,22 +771,22 @@ function updateGameArea()
 	{ 
 		//37=Left, 39=Right, 38=Down, 40=Up, 32=Space
 		if(map[37])	{
-			if(player.x>5)
+			if(player.x>10)
 				player.x-=speed;
 			totalMovement+=speed;
 		}
 		if(map[39]){
-			if(!(player.x+player.width>gameArea.canvas.width-5))
+			if(!(player.x+player.width>gameArea.canvas.width-10))
 				player.x+=speed;
 			totalMovement+=speed;
 		}
 		if(map[40]){
-			if(!(player.y+player.height>gameArea.canvas.height-5))
+			if(!(player.y+player.height>gameArea.canvas.height-10))
 				player.y+=speed;
 			totalMovement+=speed;
 		}
 		if(map[38]){
-			if(player.y>5)
+			if(player.y>10)
 				player.y-=speed;
 			totalMovement+=speed;
 		}
