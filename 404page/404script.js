@@ -1,5 +1,3 @@
-/* Game is incomplete. Literally babys first js game lol */ 
-
 function isWackyMode(){return false} 
 /*
 Set this to true for some wacky stuff!
@@ -551,7 +549,10 @@ function updateStars()
 		stars[i].y+=stars[i].speedY;
 
 		if(stars[i].y>gameArea.canvas.height)
+		{
 			stars[i].y=0;
+			stars[i].x=Math.floor(Math.random()*gameArea.canvas.width);
+		}
 
 		stars[i].update();
 	}
@@ -765,6 +766,7 @@ function updateGameArea()
 		map[e.keyCode]=e.type=='keydown';
 	}
 
+	//KEY INPUT
 	if(player.active)
 	{ 
 		//37=Left, 39=Right, 38=Down, 40=Up, 32=Space
@@ -792,35 +794,9 @@ function updateGameArea()
 			if(bulletCooldown>=gun[gunType].firedelay && currentDurability>0)
 				shootGun(player);
 		}
-
-		// * REMOVE LATER
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		// if(map[81]){
-		// 	if(bulletCooldown>=250){
-		// 		changeGunTo((gunType+1)%gun.length);
-		// 		bulletCooldown=0;
-		// 	}
-		// }
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
-		//*
 	}
 
+	//first wave init
 	if(!gameStarted && totalMovement>100)
 	{
 		player.width=22;
@@ -842,12 +818,12 @@ function updateGameArea()
 			 And being able to actually time stuff, pretty necessary.
 		*/
 		
-		//Alien wave 1 structure
-		n[0]=15;
-		e[0]=0;
+		//Alien structures
 		setTimeout(
 			function()
 			{
+				n[0]=15;
+				e[0]=0;
 				for(var i=0; i<n[0]; i++)
 				{	
 					setTimeout(
@@ -886,155 +862,164 @@ function updateGameArea()
 			//Timeout until wave starts
 			20*1000
 		);
-
-		n[2]=5;
-		e[2]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[2]; i++)
-				{	
-					setTimeout(
-						function()
-						{
-							makeAlien(3,[e[2],n[2]]);
-							e[2]++;
-						}, 
-						1000*i
-					);
-				}
-			},
-			30*1000
-		);
-
-		n[3]=5;
-		e[3]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[3]; i++)
-				{	
-					setTimeout(
-						function()
-						{
-							makeAlien(7,[e[3],n[3]]);
-							e[3]++;
-						}, 
-						1000*i
-					);
-				}
-			},
-			40*1000
-		);
 		
-		n[4]=5;
-		e[4]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[4]; i++)
+		for(var wavenum=0; wavenum<10; wavenum++)
+		{
+			setTimeout(
+				function()
 				{	
+					n[2]=5;
+					e[2]=0;
 					setTimeout(
 						function()
 						{
-							makeAlien(1,[e[4],n[4]]);
-							e[4]++;
-						}, 
-						1000*i
+							for(var i=0; i<n[2]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(3,[e[2],n[2]]);
+										e[2]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						30*1000
 					);
-				}
-			},
-			50*1000
-		);
 		
-		n[5]=5;
-		e[5]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[5]; i++)
-				{	
+					n[3]=5;
+					e[3]=0;
 					setTimeout(
 						function()
 						{
-							makeAlien(4,[e[5],n[5]]);
-							makeAlien(5,[e[5],n[5]]);
-							e[5]++;
-						}, 
-						1000*i
+							for(var i=0; i<n[3]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(7,[e[3],n[3]]);
+										e[3]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						40*1000
 					);
-				}
-			},
-			60*1000
-		);
+					
+					n[4]=5;
+					e[4]=0;
+					setTimeout(
+						function()
+						{
+							for(var i=0; i<n[4]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(1,[e[4],n[4]]);
+										e[4]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						50*1000
+					);
+					
+					n[5]=5;
+					e[5]=0;
+					setTimeout(
+						function()
+						{
+							for(var i=0; i<n[5]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(4,[e[5],n[5]]);
+										makeAlien(5,[e[5],n[5]]);
+										e[5]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						60*1000
+					);
+					
+					n[6]=10;
+					e[6]=0;
+					setTimeout(
+						function()
+						{
+							for(var i=0; i<n[6]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(6,[e[6],n[6]]);
+										e[6]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						65*1000
+					);
+					
+					n[7]=10;
+					e[7]=0;
+					setTimeout(
+						function()
+						{
+							for(var i=0; i<n[7]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(8,[e[7],n[7]]);
+										e[7]++;
+									}, 
+									1000*i
+								);
+							}
+						},
+						85*1000
+					);
 		
-		n[6]=10;
-		e[6]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[6]; i++)
-				{	
+					n[8]=20;
+					e[8]=0;
 					setTimeout(
 						function()
 						{
-							makeAlien(6,[e[6],n[6]]);
-							e[6]++;
-						}, 
-						1000*i
+							for(var i=0; i<n[8]; i++)
+							{	
+								setTimeout(
+									function()
+									{
+										makeAlien(0,[e[8],n[8]]);
+										e[8]++;
+									}, 
+									500*i
+								);
+							}
+						},
+						70*1000
 					);
-				}
-			},
-			65*1000
-		);
 		
-		n[7]=10;
-		e[7]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[7]; i++)
-				{	
 					setTimeout(
 						function()
 						{
-							makeAlien(8,[e[7],n[7]]);
-							e[7]++;
-						}, 
-						1000*i
-					);
-				}
-			},
-			85*1000
-		);
-
-		n[8]=20;
-		e[8]=0;
-		setTimeout(
-			function()
-			{
-				for(var i=0; i<n[8]; i++)
-				{	
-					setTimeout(
-						function()
-						{
-							makeAlien(0,[e[8],n[8]]);
-							e[8]++;
-						}, 
-						500*i
-					);
-				}
-			},
-			70*1000
-		);
-
-		setTimeout(
-			function()
-			{
-				waveCheck[0]=true;
-			},
-			70*1000
-		);
+							waveCheck[0]=true;
+						},
+						70*1000
+					)
+				},
+				85*1000*wavenum
+			);
+		}
 		
 		for(var i=0; i<lives; i++)
 		{
@@ -1092,6 +1077,7 @@ function updateGameArea()
 				//bulletColl.active=false;
 
 				alienBulletCollisions[i].dead=true;
+				alienBulletCollisions[i].sprite.active=false;
 				score+=20;
 
 				var newAudio = new Audio('404page/sounds/enemyHurt.wav');
@@ -1220,15 +1206,7 @@ function updateGameArea()
 }
 
 
-function allAliensDead()
-{
-	for(var i=0; i<aliens.length; i++)
-	{
-		if(!aliens[i].dead)
-			return false;
-	}
-	return true;
-}
+
 
 
 alienBombs=[];
@@ -1236,9 +1214,9 @@ function dropBombFrom(alien)
 {
 	var newBomb = new component(15,15,"404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
-
+	
 	//alienBombs[alienBombs.length] = newBomb;
-
+	
 	if (alienBombs.length==0) alienBombs[0]=newBomb;
 	else
 	{
@@ -1276,6 +1254,15 @@ function updateBombs()
 	}
 }
 
+function allAliensDead()
+{
+	for(var i=0; i<aliens.length; i++)
+	{
+		if(!aliens[i].dead)
+			return false;
+	}
+	return true;
+}
 
 function startWave(waveNum)
 {
