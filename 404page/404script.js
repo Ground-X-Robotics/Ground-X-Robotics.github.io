@@ -771,7 +771,7 @@ function updateGameArea()
 	{ 
 		//37=Left, 39=Right, 38=Down, 40=Up, 32=Space
 		if(map[37])	{
-			if(player.x>10)
+			if(player.x>2)
 				player.x-=speed;
 			totalMovement+=speed;
 		}
