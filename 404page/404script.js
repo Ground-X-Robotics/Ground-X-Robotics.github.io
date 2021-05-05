@@ -57,11 +57,11 @@ function startGame()
 	*/
 
 	//*This is the image that says "Error 404 ; Page not found" (used image because of the lack of font support)
-	errortext = new component(700,200,"404page/sprites/404.png",220,130,"image");
+	errortext = new component(700,200,"../404page/sprites/404.png",220,130,"image");
 	//*This is the small image of the arrow keys
-	arrowKeys = new component(72*3,21*3,"404page/sprites/arrowKeys.png",5,(gameArea.canvas.height-(21*3))-5,"image");
+	arrowKeys = new component(72*3,21*3,"../404page/sprites/arrowKeys.png",5,(gameArea.canvas.height-(21*3))-5,"image");
 	//*This is the player on-screen both before and after starting the game. Do not remove.
-	player = new component(88,200, "404page/sprites/spaceship.png", 80, 120, "image");
+	player = new component(88,200, "../404page/sprites/spaceship.png", 80, 120, "image");
 	
 	
 	//Death screen vvvvvvv
@@ -1080,7 +1080,7 @@ function updateGameArea()
 				alienBulletCollisions[i].sprite.active=false;
 				score+=20;
 
-				var newAudio = new Audio('404page/sounds/enemyHurt.wav');
+				var newAudio = new Audio('../404page/sounds/enemyHurt.wav');
 				newAudio.volume=0.25;
 				newAudio.play();
 			}
