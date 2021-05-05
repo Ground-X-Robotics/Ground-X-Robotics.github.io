@@ -106,7 +106,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="../404page/404page/sprites/alien2.png";
+			sprite="../404page/sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
