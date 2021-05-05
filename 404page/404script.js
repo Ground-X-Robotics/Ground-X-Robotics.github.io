@@ -1296,4 +1296,4 @@ function startWave(waveNum)
 	}
 }
 
-function getScore() { return score+Math.round((new Date().getTime() - startTime)*1000); }
+function getScore() { return score+Math.round((new Date().getTime() - startTime)); }
