@@ -1,3 +1,5 @@
+/* Game is incomplete. Literally babys first js game lol */ 
+
 function isWackyMode(){return false} 
 /*
 Set this to true for some wacky stuff!
@@ -59,7 +61,7 @@ function startGame()
 	//*This is the image that says "Error 404 ; Page not found" (used image because of the lack of font support)
 	errortext = new component(700,200,"404page/sprites/404.png",220,130,"image");
 	//*This is the small image of the arrow keys
-	arrowKeys = new component(72*3,21*3,"404page/sprites/arrowKeys.png",0,gameArea.canvas.height-(21*3),"image");
+	arrowKeys = new component(72*3,21*3,"404page/sprites/arrowKeys.png",5,(gameArea.canvas.height-(21*3))-5,"image");
 	//*This is the player on-screen both before and after starting the game. Do not remove.
 	player = new component(88,200, "404page/sprites/spaceship.png", 80, 120, "image");
 	
@@ -106,7 +108,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="404page/sprites/alien2.png";
+			sprite="404page/404page/sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
@@ -776,12 +778,12 @@ function updateGameArea()
 			totalMovement+=speed;
 		}
 		if(map[39]){
-			if(!(player.x+player.width>gameArea.canvas.width))
+			if(!(player.x+player.width>gameArea.canvas.width-5))
 				player.x+=speed;
 			totalMovement+=speed;
 		}
 		if(map[40]){
-			if(!(player.y+player.height>gameArea.canvas.height))
+			if(!(player.y+player.height>gameArea.canvas.height-5))
 				player.y+=speed;
 			totalMovement+=speed;
 		}
@@ -1023,7 +1025,7 @@ function updateGameArea()
 		
 		for(var i=0; i<lives; i++)
 		{
-			livesDisplay[i]=new component((11*1.5),25*1.5,"404page/sprites/spaceship.png",0+(i*11*1.5),gameArea.canvas.height-(25*1.5),"image")
+			livesDisplay[i]=new component((11*1.5),25*1.5,"404page/sprites/spaceship.png",5+(i*11*1.5),(gameArea.canvas.height-(25*1.5))-5,"image")
 		}
 
 		generateStars();
@@ -1033,7 +1035,7 @@ function updateGameArea()
 		hurtFlash = new component(gameArea.canvas.width,gameArea.canvas.height, "red", 0, 0)
 		hurtFlash.alpha=0;
 
-		ammo = new text(currentDurability, gameArea.canvas.width,30,"30px Courier", "red", "right");
+		ammo = new text(currentDurability, gameArea.canvas.width-5,35,"30px Courier", "red", "right");
 
 		gameStarted=true;
 	}
