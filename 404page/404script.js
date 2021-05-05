@@ -776,22 +776,22 @@ function updateGameArea()
 			totalMovement+=speed;
 		}
 		if(map[39]){
-			if(!(player.x+player.width>gameArea.canvas.width-10))
+			if(!(player.x+player.width>gameArea.canvas.width-2))
 				player.x+=speed;
 			totalMovement+=speed;
 		}
 		if(map[40]){
-			if(!(player.y+player.height>gameArea.canvas.height-10))
+			if(!(player.y+player.height>gameArea.canvas.height-2))
 				player.y+=speed;
 			totalMovement+=speed;
 		}
 		if(map[38]){
-			if(player.y>10)
+			if(player.y>2)
 				player.y-=speed;
 			totalMovement+=speed;
 		}
 		if(map[32]){
-			if(bulletCooldown>=gun[gunType].firedelay && currentDurability>0)
+			if(bulletCooldown>=gun[gunType].firedelay && currentDurability>2)
 				shootGun(player);
 		}
 	}
