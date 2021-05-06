@@ -684,10 +684,6 @@ function shootGun(player)
 			bullets[len+(i-1)].speedY=currentGun.speed;
 		}
 	}
-	// else if(gun[gunType].name=="shotgun")
-	// {
-		
-	// }
 	else
 	{
 		for(var i=1; i<beamCount; i++)
@@ -768,8 +764,6 @@ function updateGameArea()
 		map[e.keyCode]=e.type=='keydown';
 	}
 
-
-	console.log(map);
 	//KEY INPUT
 	if(player.active)
 	{ 
