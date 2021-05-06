@@ -5,6 +5,10 @@ Set this to true for some wacky stuff!
 */
 
 
+//If running on a local machine, set to "", otherwise set it to "/". This is to make the filepaths able to run locally (for testing purposes)
+var localMachine="/";
+
+
 //https://www.w3schools.com/graphics/game_canvas.asp
 var gameArea = {
 	canvas : document.createElement("canvas"),
@@ -57,11 +61,11 @@ function startGame()
 	*/
 
 	//*This is the image that says "Error 404 ; Page not found" (used image because of the lack of font support)
-	errortext = new component(700,200,"/404page/sprites/404.png",220,130,"image");
+	errortext = new component(700,200,localMachine+"404page/sprites/404.png",220,130,"image");
 	//*This is the small image of the arrow keys
-	arrowKeys = new component(72*3,21*3,"/404page/sprites/arrowKeys.png",5,(gameArea.canvas.height-(21*3))-5,"image");
+	arrowKeys = new component(72*3,21*3,localMachine+"404page/sprites/arrowKeys.png",5,(gameArea.canvas.height-(21*3))-5,"image");
 	//*This is the player on-screen both before and after starting the game. Do not remove.
-	player = new component(88,200, "/404page/sprites/spaceship.png", 80, 120, "image");
+	player = new component(88,200, localMachine+"404page/sprites/spaceship.png", 80, 120, "image");
 	
 	
 	//Death screen vvvvvvv
@@ -97,7 +101,7 @@ class Alien
 				[(gameArea.canvas.width/15) * this.creationI[0] , 0],
 				[(gameArea.canvas.width/15) * this.creationI[0], gameArea.canvas.height*0.666666]
 			];
-			sprite="/404page/sprites/alien1.png";
+			sprite=localMachine+"404page/sprites/alien1.png";
 		}
 		else if(type=="swinger"||type==1) 
 		{
@@ -106,7 +110,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/10) * this.creationI[0]) -(gameArea.canvas.height/2)],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/10) * this.creationI)-(gameArea.canvas.height/2) ]
 			];
-			sprite="/404page/sprites/alien2.png";
+			sprite=localMachine+"404page/sprites/alien2.png";
 		}
 		else if(type=="oscillator"||type==2) 
 		{
@@ -115,7 +119,7 @@ class Alien
 				[0, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))],
 				[gameArea.canvas.width, (((gameArea.canvas.height/2)/5) * (this.creationI[0]+1))]
 			];
-			sprite="/404page/sprites/alien3.png";
+			sprite=localMachine+"404page/sprites/alien3.png";
 		}
 		else if(type=="zigzagger"||type==3) 
 		{
@@ -129,13 +133,13 @@ class Alien
 				this.path[(i+splits+2)]=[gameArea.canvas.width/splits * i,gameArea.canvas.height*(i%2)]
 			}
 
-			sprite="/404page/sprites/alien4.png";
+			sprite=localMachine+"404page/sprites/alien4.png";
 		}
 		else if(type=="cosiner"||type==4) 
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="/404page/sprites/alien5.png";
+			sprite=localMachine+"404page/sprites/alien5.png";
 
 			this.path=[];
 			var x=0;
@@ -149,7 +153,7 @@ class Alien
 		{
 			this.speed=5;
 			this.movementType="exact";
-			sprite="/404page/sprites/alien6.png";
+			sprite=localMachine+"404page/sprites/alien6.png";
 
 			this.path=[];
 			var x=0;
@@ -163,7 +167,7 @@ class Alien
 		{
 			this.movementType="exact"
 			this.speed=3;
-			sprite="/404page/sprites/alien7.png";
+			sprite=localMachine+"404page/sprites/alien7.png";
 
 			this.path=[];
 			var x=0;
@@ -178,14 +182,14 @@ class Alien
 			this.movementType="homing";
 			this.speed=3.3;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="/404page/sprites/alien8.png";
+			sprite=localMachine+"404page/sprites/alien8.png";
 		}
 		else if(type=="swiper"||type==8)
 		{
 			this.movementType="swiper";
 			this.speed=7;
 			this.path=[[0,0],[gameArea.canvas.width,gameArea.canvas.height]];
-			sprite="/404page/sprites/alien9.png";
+			sprite=localMachine+"404page/sprites/alien9.png";
 
 			this.path[0][0]=0;
 			this.path[0][1]=Math.random()*gameArea.canvas.height;
@@ -309,11 +313,12 @@ var stars=[];
 var livesDisplay=[];
 var lives=3;
 var score=0;
+var hurtTime=1500;
 function hurtPlayer(amt=1)
 {
-	if(hurtCooldown>1500)
+	if(hurtCooldown>hurtTime)
 	{
-		new Audio('404page/sounds/hurt.wav').play();
+		new Audio(localMachine+'404page/sounds/hurt.wav').play();
 
 		livesDisplay.pop();
 		lives-=amt;
@@ -333,10 +338,10 @@ class Pickup
 		this.type=i;
 		this.destroyed=false;
 
-		var newSprite="/404page/sprites/gunSingle.png"
-		if(i==1) newSprite="/404page/sprites/gunDouble.png";
-		else if(i==2) newSprite="/404page/sprites/gunLaser.png";
-		else if(i==3) newSprite="/404page/sprites/gunWipe.png"
+		var newSprite=localMachine+"404page/sprites/gunSingle.png"
+		if(i==1) newSprite=localMachine+"404page/sprites/gunDouble.png";
+		else if(i==2) newSprite=localMachine+"404page/sprites/gunLaser.png";
+		else if(i==3) newSprite=localMachine+"404page/sprites/gunWipe.png"
 
 		this.sprite=new component(33,33, newSprite, x, y, "image")
 		this.sprite.speedY=3;
@@ -655,7 +660,7 @@ function changeGunTo(gunNum, playAnimation=true)
 	
 	if(playAnimation)
 	{
-		new Audio('/404page/sounds/pickup.wav').play();
+		new Audio(localMachine+'404page/sounds/pickup.wav').play();
 		playFlashAnimation=true;
 		animationStartTime= new Date().getTime();
 	}
@@ -771,22 +776,22 @@ function updateGameArea()
 	{ 
 		//37=Left, 39=Right, 38=Down, 40=Up, 32=Space
 		if(map[37])	{
-			if(player.x>4)
+			if(player.x>0)
 				player.x-=speed;
 			totalMovement+=speed;
 		}
 		if(map[39]){
-			if(!(player.x+player.width>gameArea.canvas.width-4))
+			if(!(player.x+player.width>gameArea.canvas.width-5))
 				player.x+=speed;
 			totalMovement+=speed;
 		}
 		if(map[40]){
-			if(!(player.y+player.height>gameArea.canvas.height-4))
+			if(!(player.y+player.height>gameArea.canvas.height-5))
 				player.y+=speed;
 			totalMovement+=speed;
 		}
 		if(map[38]){
-			if(player.y>4)
+			if(player.y>0)
 				player.y-=speed;
 			totalMovement+=speed;
 		}
@@ -1023,7 +1028,7 @@ function updateGameArea()
 		
 		for(var i=0; i<lives; i++)
 		{
-			livesDisplay[i]=new component((11*1.5),25*1.5,"/404page/sprites/spaceship.png",5+(i*11*1.5),(gameArea.canvas.height-(25*1.5))-5,"image")
+			livesDisplay[i]=new component((11*1.5),25*1.5,localMachine+"404page/sprites/spaceship.png",5+(i*11*1.5),(gameArea.canvas.height-(25*1.5))-5,"image")
 		}
 
 		generateStars();
@@ -1068,9 +1073,13 @@ function updateGameArea()
 		var collision = checkForCollision(player, aliens);
 		if(collision && player.active)
 		{
+			
+			if(hurtCooldown>hurtTime)
+			{
+				collision[0].dead=true;
+				collision[0].sprite.active=false;
+			}
 			hurtPlayer();
-			collision[0].dead=true;
-			collision[0].sprite.active=false;
 		}
 
 		var alienBulletCollisions = checkForCollision(bullets, aliens);
@@ -1082,9 +1091,9 @@ function updateGameArea()
 
 				alienBulletCollisions[i].dead=true;
 				alienBulletCollisions[i].sprite.active=false;
-				score+=20;
+				score+=200;
 
-				var newAudio = new Audio('/404page/sounds/enemyHurt.wav');
+				var newAudio = new Audio(localMachine+'404page/sounds/enemyHurt.wav');
 				newAudio.volume=0.25;
 				newAudio.play();
 			}
@@ -1217,7 +1226,7 @@ function updateGameArea()
 alienBombs=[];
 function dropBombFrom(alien)
 {
-	var newBomb = new component(15,15,"/404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
+	var newBomb = new component(15,15,localMachine+"404page/sprites/bomb.png", alien.sprite.x + (alien.sprite.width/2), alien.sprite.y,"image")
 	newBomb.speedY = 5;
 	
 	//alienBombs[alienBombs.length] = newBomb;
@@ -1296,4 +1305,4 @@ function startWave(waveNum)
 	}
 }
 
-function getScore() { return score+Math.round((new Date().getTime() - startTime)); }
+function getScore() { return score+Math.round((new Date().getTime() - startTime)/10); }
