@@ -1,13 +1,11 @@
-function isWackyMode(){return false} 
+function isWackyMode(){return false}
 /*
 Set this to true for some wacky stuff!
 (you have to ctrl+s afterwards)
 */
 
-
 //If running on a local machine, set to "", otherwise set it to "/". This is to make the filepaths able to run locally (for testing purposes)
-var localMachine="/";
-
+var localMachine="";
 
 //https://www.w3schools.com/graphics/game_canvas.asp
 var gameArea = {
@@ -34,14 +32,13 @@ var gameArea = {
 		window.addEventListener('keydown', function (e) {
 			gameArea.key = e.keyCode;
 		})
-		
 	},
 	//When clear is called, reset rect
 	clear : function() {
 	  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 }
-const startTime = new Date().getTime();
+startTime = new Date().getTime();
 function startGame()
 {
 	gameArea.start();
@@ -55,7 +52,7 @@ function startGame()
 	- The 4th and 5th values are its coordinates on-screen
 	- The 6th value just tells it if it is an image or solid colour rectangle
 
-	If you remove a component, jump to about line 923~ and remove it's '.update()' counterpart,
+	If you remove a component, jump to about line 1054~ and remove it's '.update()' counterpart,
 	vice versa for adding a new element.
 
 	*/
@@ -804,6 +801,8 @@ function updateGameArea()
 	//first wave init
 	if(!gameStarted && totalMovement>100)
 	{
+		startTime = new Date().getTime();
+
 		player.width=22;
 		player.height=50;
 		speed=7;
@@ -1219,10 +1218,6 @@ function updateGameArea()
 	}
 }
 
-
-
-
-
 alienBombs=[];
 function dropBombFrom(alien)
 {
@@ -1264,7 +1259,6 @@ function updateBombs()
 		{
 			alienBombs[i].y= - gameArea.canvas.height;
 		}
-
 	}
 }
 
