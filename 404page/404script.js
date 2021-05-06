@@ -5,7 +5,7 @@ Set this to true for some wacky stuff!
 */
 
 //If running on a local machine, set to "", otherwise set it to "/". This is to make the filepaths able to run locally (for testing purposes)
-var localMachine="";
+var localMachine="/";
 
 //https://www.w3schools.com/graphics/game_canvas.asp
 var gameArea = {
