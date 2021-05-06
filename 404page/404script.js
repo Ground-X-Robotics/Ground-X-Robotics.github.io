@@ -38,7 +38,7 @@ var gameArea = {
 	  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 }
-startTime = new Date().getTime();
+var startTime = new Date().getTime();
 function startGame()
 {
 	gameArea.start();
@@ -768,26 +768,29 @@ function updateGameArea()
 		map[e.keyCode]=e.type=='keydown';
 	}
 
+
+	console.log(map);
 	//KEY INPUT
 	if(player.active)
 	{ 
+		//65=a,68=d,87=W,83=s,
 		//37=Left, 39=Right, 38=Down, 40=Up, 32=Space
-		if(map[37])	{
+		if(map[37]||map[65]){
 			if(player.x>4)
 				player.x-=speed;
 			totalMovement+=speed;
 		}
-		if(map[39]){
+		if(map[39]||map[68]){
 			if(!(player.x+player.width>gameArea.canvas.width-4))
 				player.x+=speed;
 			totalMovement+=speed;
 		}
-		if(map[40]){
+		if(map[40]||map[83]){
 			if(!(player.y+player.height>gameArea.canvas.height-4))
 				player.y+=speed;
 			totalMovement+=speed;
 		}
-		if(map[38]){
+		if(map[38]||map[87]){
 			if(player.y>4)
 				player.y-=speed;
 			totalMovement+=speed;
