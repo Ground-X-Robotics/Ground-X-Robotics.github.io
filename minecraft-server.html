@@ -1,0 +1,207 @@
+<hmtl>
+<head>
+
+
+<link rel="icon" href="logo.png">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+
+.subtitle{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4vw;
+  color: rgba(255,255,255,0.8);
+  margin: auto;
+  text-align: center;
+  line-height: 200px;
+  height: 200px;
+}
+
+#list{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+}
+
+</style>
+
+<link rel="stylesheet" href="Styles/main.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox"  id="bannerserver" style="height: 65%;">
+    <div class="topnav" id="navbar">
+      <a href="../">Home</a>
+      <a href="team">Team</a>
+      <a href="lastseason" class="active">Last Season</a>
+      <a href="thisseason">This Season</a>
+      <a href="minecraft-server">Minecraft Server</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer" style="height: 20%;">
+        <p class="title" style="font-size: 12vw;">Ground X</p>
+ 
+    </div>
+    <br><br>
+    <p class="subtitle">Minecraft Server</p>
+</div>
+ 
+  
+   <!--Main Page Below-->
+
+ <div class="seasonpg" >
+
+  <div class="seasonbox">
+
+  <p id="Seasontitle">The Ground-X Minecraft server!</p>
+
+    <p class="seasontext">
+      We decided that a great way to open up our arms and increase our reach, would be to launch a Minecraft server! Of course,
+      heavily moderated. This server is the culmination of work over weeks, and we're happy to release it to the public!
+    </p> 
+    <br>
+    <p class="seasontext">
+      You can join the server at <b>mc.ground.uk</b>, or, if you wish to join on Xbox, see <a href="xbox-server">this page</a> for help! Thats right, 
+      this server supports Cross-Platform between Java and Bedrock edition versions of the game! Accessible to anyone!
+    </p> 
+
+    <img class="seasonimg" src="Media/ss12.png" alt="Picture of server" width="90%" height="auto">
+
+    <h class="subtitle" style="color:black; font-size:3vw;">Features</h>
+    <p class="seasontext" id="list">
+      This server is constantly in development, but as of right now, there are 2 Worlds with infinite possibilities!<br>
+      At the moment, there is a Survival world, and a Plots world. With more to come!<br>
+      <br><br>
+      Here's what we've got! : <br>
+      <ul id="list">
+        <!--<h class="subtitle" style="color:black; font-size:3vw;">Admins</h>-->
+        <li class="seasontext">Casual Survival</li>
+        <li class="seasontext">TPA</li>
+        <li class="seasontext">/echest,/craft,...</li>
+        <li class="seasontext">Essentials!</li>
+        <li class="seasontext">Land claim</li>
+        <li class="seasontext">Kits</li>
+        <li class="seasontext">Shops (/buy,/sell)</li>
+        <li class="seasontext">Anti-Xray</li>
+        <li class="seasontext">Nightskip</li>
+        <li class="seasontext">Toggleable PVP</li>
+        <li class="seasontext">RTP</li>
+        <li class="seasontext">Plots Squared</li>
+        <li class="seasontext">...And More!...</li>
+        
+        
+      </ul>
+    </p>
+    <br><br><br>
+    <p class="seasontext" id="list">
+      The plots world is a fully fledged Plots experience, with an infinitely generating grid of plots for you to claim and build on!
+    </p>
+
+
+
+    <img class="seasonimg" src="Media/ss10.png" alt="Picture of server" width="90%" height="auto">
+
+    <p class="seasontext" id="list">
+    This server was made by many members of our team! We all worked together to create what we have to show for!<br>
+    The wonderful builders; catcube, RetroGradious, Plokie_<br>
+    This server is also maintained by our Programmer.<br>
+    Below, is a list of our team members, and their ranks in the server.<br>
+    <ul id="list">
+      <h class="subtitle" style="color:black; font-size:3vw;">Admins</h>
+      <li class="seasontext">Plokie_ / Larazades</li>
+      <li class="seasontext">catcube</li>
+      <li class="seasontext">Biglaad_</li>
+      <li class="seasontext">RetroGradious</li>
+      <h class="subtitle" style="color:black; font-size:3vw;">Ground-X Team members</h>
+      <li class="seasontext">ArmChairMajor</li>
+      <li class="seasontext">+scmeparsons</li>
+      <li class="seasontext">Radioactiv03</li>
+      <li class="seasontext">Hyebone</li>
+      <li class="seasontext">Samrage2004 / +welcometomypain</li>
+    </ul>
+    </p>
+    <p class="seasontext" id="list">
+      + more to be added later...
+      <br><br><br>
+      Everyone above mentioned has administrator, so they will bite!
+    </p>
+
+    <img class="seasonimg" src="Media/ss3.png" alt="Picture of server" width="90%" height="auto">
+
+    <p class="seasontext">
+      <button type="button" class="subtitle" style="color:black; font-size:3vw;" onclick="copyLink()" id="linkcopy"><b>mc.groundx.uk</b></button>
+    </p> 
+
+    <script>
+      function copyStringToClipboard (str) {
+        // Create new element
+        var el = document.createElement('textarea');
+        // Set value (string to be copied)
+        el.value = str;
+        // Set non-editable to avoid focus and move outside of view
+        el.setAttribute('readonly', '');
+        el.style = {position: 'absolute', left: '-9999px'};
+        document.body.appendChild(el);
+        // Select text inside element
+        el.select();
+        // Copy text to clipboard
+        document.execCommand('copy');
+        // Remove temporary element
+        document.body.removeChild(el);
+      }
+
+      function copyLink()
+      {
+        copyStringToClipboard("mc.groundx.uk")
+        document.getElementById("linkcopy").innerHTML="Copied IP!"
+        setTimeout(()=>{
+          document.getElementById("linkcopy").innerHTML="mc.groundx.uk"
+        },1000);
+      }
+    </script>
+
+  </div>
+  
+ </div>
+   
+<div class="footer">
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+</div>
+
+</body>
+</html>
