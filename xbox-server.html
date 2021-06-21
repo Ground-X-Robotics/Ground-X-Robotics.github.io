@@ -1,0 +1,129 @@
+<hmtl>
+<head>
+
+
+<link rel="icon" href="logo.png">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+
+#steps{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+}
+
+
+</style>
+
+<link rel="stylesheet" href="Styles/main.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function Navigation() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+function Toggleicon(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+</head>
+<body>
+
+<div class="HomeBox"  id="bannerls">
+    <div class="topnav" id="navbar">
+      <a href="../">Home</a>
+      <a href="team">Team</a>
+      <a href="lastseason" class="active">Last Season</a>
+      <a href="thisseason">This Season</a>
+      <a href="javascript:void(0);" class="icon" onclick="Navigation()">
+        <div class="container" onclick="Toggleicon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="titlecontainer">
+        <p class="title">Ground X</p>
+    </div>
+</div>
+ 
+  
+   <!--Main Page Below-->
+
+ <div class="seasonpg">
+
+  <div class="seasonbox">
+
+  <p id="Seasontitle">How to join our Minecraft Server on Xbox</p>
+
+    <p class="seasontext">
+      Our Minecraft server supports cross-platform play with Bedrock and Java! The current version of the server is 1.16.5, so make sure you are running that version!
+    </p>
+    <br>
+    <p class="seasontext">
+      Here's how to do it:<br><br>
+      <ol class="seasontext" id="steps">
+        <li class="seasontext" style="text-align: left;">Open up your 'Settings' in Xbox</li>
+        <li class="seasontext" style="text-align: left;"">Go to Network Settings</li>
+        <li class="seasontext" style="text-align: left;"">Go to Advanced settings</li>
+        <li class="seasontext" style="text-align: left;"">Go to DNS settings</li>
+        <li class="seasontext" style="text-align: left;"">Press Manual</li>
+        <li class="seasontext" style="text-align: left;"">For the Primary IPv4 DNS, enter: <br> <code>104.238.130.180</code></li>
+        <li class="seasontext" style="text-align: left;"">Then, for the Secondary IPv4 DNS, enter: <br> <code>8.8.8.8</code></li>
+        <br>
+        <li class="seasontext" style="text-align: left;"">Now load Minecraft. Reload it if it was already loaded.</li>
+        <li class="seasontext" style="text-align: left;"">Go to the <b>Servers</b> tab, and join any server.</li>
+        <li class="seasontext" style="text-align: left;"">Press Connect to a Server</li>
+        <li class="seasontext" style="text-align: left;"">Enter the IP Address as <code>mc.groundx.uk</code></li>
+        <li class="seasontext" style="text-align: left;"">Enter the Server Port as <code>25616</code></li>
+        <li class="seasontext" style="text-align: left;"">Check <b>Add server to list</b></li>
+        <li class="seasontext" style="text-align: left;"">Press Submit</li>
+      </ol>
+      <br><br>
+    </p>
+    <p class="seasontext" id="steps">
+      You should now be in the server! If you ever want to join back, the Ground-X Minecraft server should appear in the server list whenever you open the secret server menu again!
+      <br><br>
+      <b>Didn't work?</b><br> Make sure that you entered the IPv4 addresses into the Network Settings correctly, and that the server IP and Port was typed into Minecraft correctly.<br>
+      Also assure that you are running the same version of the game as the server.<br>
+      Right now, the server is running 1.16.5, but will be updated to 1.17 as soon as the Purpur and Crossplay versions are released!
+    </p>
+    <br><br><br>
+    <p class="seasontext">
+      Still having trouble? Try Googling any errors you are experiencing, or feel free to DM us on Twitter as <a href="https://twitter.com/GroundX6">@GroundX6</a>, we will respond with help as soon as possible.
+    </p>
+  </div>
+
+
+
+
+  
+ </div>
+   
+<div class="footer">
+<div class="Footerbar">
+<a href="https://www.instagram.com/groundxrobotic" class="fa fa-instagram"></a>
+<a href="https://twitter.com/GroundX6"class="fa fa-twitter"></a>
+</div>
+</div>
+
+</body>
+</html>
