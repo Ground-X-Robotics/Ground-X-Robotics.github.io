@@ -159,6 +159,12 @@ p{
     background-size: cover;
 }
 
+#bannerserver{
+    background: url(../Media/Banner_LS.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #bannerts{
     background: url(../Media/banner.jpg);
     background-repeat: no-repeat;
