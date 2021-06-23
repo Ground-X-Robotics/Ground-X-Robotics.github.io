@@ -2,4 +2,4 @@ This is the current website for GroundX Robotics. It is still in development so 
 
 
 If you have any new things you would like to add submit a pull request to the Alpha Branch for it to be reviewed
-https://ground-x-robotics.github.io/
+https://groundx.uk
