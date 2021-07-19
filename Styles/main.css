@@ -148,13 +148,19 @@ p{
 }
 
 #bannerteam{
-    background: url(../Media/banner.jpg);
+    background: url(../Media/2020-2021 Team2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#bannerls{
+#banner2019-202{
     background: url(../Media/Banner_LS.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#banner2020-2021{
+    background: url(../Media/2020-2021 Team1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -165,11 +171,6 @@ p{
     background-size: cover;
 }
 
-#bannerts{
-    background: url(../Media/banner.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 #updatetitle{
     font-size: 60px;
