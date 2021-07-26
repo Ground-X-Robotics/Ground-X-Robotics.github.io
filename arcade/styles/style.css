@@ -26,6 +26,8 @@ a:active{
 .top-bar {
   overflow: hidden;
   background-color: #333;
+  zoom: 2; 
+  -moz-transform: scale(2);
 }
 .top-bar a{
   float: left;
