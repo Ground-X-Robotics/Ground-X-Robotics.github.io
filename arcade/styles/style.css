@@ -5,3 +5,9 @@ body{
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
+#gameframe{
+  width:450px;
+  height:800px;
+  border: 1px solid black;
+  zoom: 0.75; -moz-transform: scale(0.75);
+}
