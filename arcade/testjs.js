@@ -1,6 +1,9 @@
 function csAlert(jsString)
 {
-	//alert('Unity says:"' + jsString + '"');
-    if(jsString=="Cube")
-	document.getElementById("colour").style["border"]="1px solid #FF0000;";
+	alert('Unity says:"' + jsString + '"');
+}
+
+function testSetColour(jsString)
+{
+    document.getElementById("colour").style.color=jsString;
 }
