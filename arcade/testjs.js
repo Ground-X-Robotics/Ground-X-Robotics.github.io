@@ -5,5 +5,6 @@ function csAlert(jsString)
 
 function testSetColour(jsString)
 {
-    document.getElementById("colour").style.color=jsString;
+	console.log(jsString);
+   	document.getElementById("colour").style.color=jsString;
 }
