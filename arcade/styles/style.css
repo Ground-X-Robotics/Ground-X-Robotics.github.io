@@ -51,7 +51,9 @@ a:active{
   margin: 0;
 }
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: blue;
+  color: black;
+  transition-duration: 0.4s;
 }
 .dropdown-content {
   display: none;
