@@ -41,7 +41,7 @@ a:active{
   color: black;
   transition-duration: 0.4s;
 }
-.top-bar p{
+.top-bar .top-bar-text{
   float: left;
   font-size: 16px;
   color: white;
