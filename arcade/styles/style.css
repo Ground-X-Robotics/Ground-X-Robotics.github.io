@@ -12,16 +12,16 @@ body{
   zoom: 0.75; -moz-transform: scale(0.75);
 }
 a:link{
-  color: #ff9500;
+  color: aquamarine; /* aquamarine = #7FFFD4 */
 }
 a:visited{
-  color: #ab3300;
+  color: ##5cbd9c;
 }
 a:hover{
-  color: #4cba30;
+  color: #00ffa9;
 }
 a:active{
-  color: blue;
+  color: #a8ffe2;
 }
 .top-bar {
   overflow: hidden;
