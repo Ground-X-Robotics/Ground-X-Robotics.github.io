@@ -23,3 +23,12 @@ a:hover{
 a:active{
   color: blue;
 }
+#top-bar {
+  height: 27px;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  padding: none;
+  margin: -34px; 
+  margin-left:-500%;
+  position: fixed;
+}
