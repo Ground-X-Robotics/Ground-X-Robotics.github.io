@@ -32,3 +32,16 @@ a:active{
   margin-left:-500%;
   position: fixed;
 }
+#top-bar-title{
+  position: fixed;
+  top: 2px;
+  left: 6px;
+}
+#top-bar-buttons{
+  position: fixed;
+  top: 0px;
+  right: 10px;
+}
+#top-bar-button{
+  color: aquamarine;
+}
