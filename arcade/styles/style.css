@@ -8,8 +8,8 @@ body{
 #gameframe{
   width:450px;
   height:800px;
-  border: 1px solid black;
-  zoom: 0.75; -moz-transform: scale(0.75);
+  /*border: 1px solid black;*/
+  zoom: 1; -moz-transform: scale(1);
 }
 a:link{
   color: aquamarine; /* aquamarine = #7FFFD4 */
