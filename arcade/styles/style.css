@@ -11,3 +11,15 @@ body{
   border: 1px solid black;
   zoom: 0.75; -moz-transform: scale(0.75);
 }
+a:link{
+  color: #ff9500;
+}
+a:visited{
+  color: #ab3300;
+}
+a:hover{
+  color: #4cba30;
+}
+a:active{
+  color: blue;
+}
