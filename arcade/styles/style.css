@@ -35,6 +35,9 @@ a:active{
   padding: 14px 16px;
   text-decoration: none;
 }
+.top-bar a:hover{
+  color: aquamarine;
+}
 
 .dropdown {
   float: left;
